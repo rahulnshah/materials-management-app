@@ -1,0 +1,8 @@
+.custom-button {
+    background-color: #4CAF50; /* Background color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding */
+    border: none; /* Remove border */
+    cursor: pointer; /* Cursor style */
+    border-radius: 5px; /* Rounded corners */
+}

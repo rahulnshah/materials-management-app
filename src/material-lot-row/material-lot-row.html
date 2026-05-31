@@ -1,0 +1,8 @@
+<td (click)="selectThisMaterialLot()">{{ materialLot.lot_number }}</td>
+<td>{{ materialLot.material_id }}</td>
+<td>
+  <input type="button" value="Delete" class="custom-button" (click)="deleteThisMaterialLot()" />
+</td>
+<td>
+  <input type="button" [value]="'View Orders'" class="custom-button" (click)="viewOrdersForLot()" />
+</td>

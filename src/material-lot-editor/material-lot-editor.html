@@ -36,23 +36,13 @@
 </div>
 <div class="box medium">
   <table id="material_lots_table">
-    <tr
-      *ngFor="let materialLot of materialLots$ | async"
-      (click)="onSelectMaterialLot(materialLot)"
-    >
-      <td>{{ materialLot.lot_number }}</td>
-      <td>{{ materialLot.material_id }}</td>
-      <td>
-        <input type="button" value="Delete" class="custom-button" (click)="onDelete(materialLot)" />
-      </td>
-      <td>
-        <input
-          type="button"
-          value="View Orders"
-          class="custom-button"
-          (click)="onViewOrders(materialLot)"
-        />
-      </td>
+    <tr *ngFor="let materialLot of materialLots$ | async">
+      <app-material-lot-row
+        (deleteMaterialLot)="onDelete($event)"
+        (viewOrders)="onViewOrders($event)"
+        (selectMaterialLot)="onSelect($event)"
+        [materialLot]="materialLot"
+      ></app-material-lot-row>
     </tr>
   </table>
 </div>

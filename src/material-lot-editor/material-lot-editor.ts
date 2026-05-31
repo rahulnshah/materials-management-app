@@ -19,10 +19,11 @@ import {
 import { Router } from '@angular/router';
 import { DataShareService } from '../app/core/services/data-share.service';
 import { Subject, takeUntil } from 'rxjs';
+import { MaterialLotRow } from '../material-lot-row/material-lot-row';
 
 @Component({
   selector: 'app-material-lot-editor',
-  imports: [FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, MaterialLotRow],
   templateUrl: './material-lot-editor.html',
   styleUrl: './material-lot-editor.css',
   standalone: true,
@@ -71,7 +72,7 @@ export class MaterialLotEditor implements OnInit {
     this.destroy$.complete();
   }
 
-  onSelectMaterialLot(materialLot: MaterialLot) {
+  onSelect(materialLot: MaterialLot) {
     this.materialLotStore.dispatch(selectMaterialLot({ materialLot }));
   }
 
