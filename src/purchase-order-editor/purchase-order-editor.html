@@ -56,28 +56,12 @@
 </div>
 <div class="box xlarge">
   <table id="orders_table">
-    <tr
-      *ngFor="let purchaseOrder of purchaseOrders$ | async"
-      (click)="onSelectPurchaseOrder(purchaseOrder)"
-    >
-      <td>{{ purchaseOrder.lot_number }}</td>
-      <td>{{ purchaseOrder.name }}</td>
-      <td>{{ purchaseOrder.quantity }}</td>
-      <td>{{ purchaseOrder.unit_price }}</td>
-      <td>{{ purchaseOrder.shipping_address.street }}</td>
-      <td>{{ purchaseOrder.shipping_address.city }}</td>
-      <td>{{ purchaseOrder.shipping_address.state }}</td>
-      <td>{{ purchaseOrder.shipping_address.zip_code }}</td>
-      <td>{{ purchaseOrder.shipping_address.country }}</td>
-      <td>{{ purchaseOrder.order_date }}</td>
-      <td>
-        <input
-          type="button"
-          value="Delete"
-          class="custom-button"
-          (click)="onDelete(purchaseOrder)"
-        />
-      </td>
+    <tr *ngFor="let purchaseOrder of purchaseOrders$ | async">
+      <app-purchase-order-row
+        (selectPurchaseOrder)="onSelect($event)"
+        (deletePurchaseOrder)="onDelete($event)"
+        [purchaseOrder]="purchaseOrder"
+      ></app-purchase-order-row>
     </tr>
   </table>
 </div>
