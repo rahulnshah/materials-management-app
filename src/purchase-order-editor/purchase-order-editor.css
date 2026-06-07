@@ -36,7 +36,7 @@
     padding: 5px;
   }
   
-  .box input[type="submit"] {
+  .custom-button-blue {
     background-color: #048ff9; /* Background color */
     color: white; /* Text color */
     padding: 10px 20px; /* Padding */
