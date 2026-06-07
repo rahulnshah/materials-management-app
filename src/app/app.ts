@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { MaterialLotEditor } from '../material-lot-editor/material-lot-editor';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MaterialLotEditor],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
