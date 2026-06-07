@@ -23,10 +23,11 @@ import { PurchaseOrder } from '../app/models/model';
 import { ActivatedRoute } from '@angular/router';
 import { DataShareService } from '../app/core/services/data-share.service';
 import { Subject, takeUntil } from 'rxjs';
+import { PurchaseOrderRow } from '../purchase-order-row/purchase-order-row';
 
 @Component({
   selector: 'app-purchase-order-editor',
-  imports: [FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, PurchaseOrderRow],
   templateUrl: './purchase-order-editor.html',
   styleUrl: './purchase-order-editor.css',
   standalone: true,
@@ -64,7 +65,7 @@ export class PurchaseOrderEditor {
     order_date: [''],
   });
 
-  onSelectPurchaseOrder(purchaseOrder: PurchaseOrder) {
+  onSelect(purchaseOrder: PurchaseOrder) {
     this.purchaseOrderStore.dispatch(selectPurchaseOrder({ purchaseOrder }));
   }
 

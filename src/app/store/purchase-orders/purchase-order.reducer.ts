@@ -29,7 +29,10 @@ export const purchaseOrderReducer = createReducer(
   })),
   on(loadPurchaseOrdersSuccess, (state, action) => ({
     ...state,
-    purchaseOrders: action.purchaseOrders,
+    purchaseOrders: action.purchaseOrders.map((order: PurchaseOrder) => ({
+      ...order,
+      shipping_address: { ...order.shipping_address },
+    })),
     loading: false,
     loaded: true,
   })),
@@ -40,7 +43,7 @@ export const purchaseOrderReducer = createReducer(
   })),
   on(selectPurchaseOrder, (state, action) => ({
     ...state,
-    selectedPurchaseOrder: action.purchaseOrder,
+    selectedPurchaseOrder: { ...action.purchaseOrder },
   })),
   on(addPurchaseOrder, (state) => ({
     ...state,
@@ -52,7 +55,11 @@ export const purchaseOrderReducer = createReducer(
     ...state,
     purchaseOrders: [
       ...state.purchaseOrders,
-      { ...action.purchaseOrder, order_id: action.inserted_order_id },
+      {
+        ...action.purchaseOrder,
+        shipping_address: { ...action.purchaseOrder.shipping_address },
+        order_id: action.inserted_order_id,
+      },
     ],
     loading: false,
     successMessage: action.successMessage,
@@ -71,7 +78,12 @@ export const purchaseOrderReducer = createReducer(
   on(updatePurchaseOrderSuccess, (state, action) => ({
     ...state,
     purchaseOrders: state.purchaseOrders.map((order: PurchaseOrder) =>
-      order.order_id === action.purchaseOrder.order_id ? action.purchaseOrder : order,
+      order.order_id === action.purchaseOrder.order_id
+        ? {
+            ...action.purchaseOrder,
+            shipping_address: { ...action.purchaseOrder.shipping_address },
+          }
+        : order,
     ),
     loading: false,
     successMessage: action.successMessage,

@@ -28,7 +28,7 @@ export const materialLotReducer = createReducer(
   })),
   on(loadMaterialLotsSuccess, (state, action) => ({
     ...state,
-    materialLots: action.materialLots,
+    materialLots: action.materialLots.map((lot: MaterialLot) => ({ ...lot })),
     loading: false,
     loaded: true,
   })),
@@ -39,7 +39,7 @@ export const materialLotReducer = createReducer(
   })),
   on(selectMaterialLot, (state, action) => ({
     ...state,
-    selectedMaterialLot: action.materialLot,
+    selectedMaterialLot: { ...action.materialLot },
   })),
   on(addMaterialLot, (state) => ({
     ...state,
@@ -49,7 +49,7 @@ export const materialLotReducer = createReducer(
   })),
   on(addMaterialLotSuccess, (state, action) => ({
     ...state,
-    materialLots: [...state.materialLots, action.materialLot],
+    materialLots: [...state.materialLots, { ...action.materialLot }],
     loading: false,
     successMessage: action.successMessage,
   })),
@@ -67,7 +67,7 @@ export const materialLotReducer = createReducer(
   on(updateMaterialLotSuccess, (state, action) => ({
     ...state,
     materialLots: state.materialLots.map((lot: MaterialLot) =>
-      lot.lot_number === action.materialLot.lot_number ? action.materialLot : lot,
+      lot.lot_number === action.materialLot.lot_number ? { ...action.materialLot } : lot,
     ),
     loading: false,
     successMessage: action.successMessage,
