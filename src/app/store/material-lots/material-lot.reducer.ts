@@ -28,7 +28,7 @@ export const materialLotReducer = createReducer(
   })),
   on(loadMaterialLotsSuccess, (state, action) => ({
     ...state,
-    materialLots: action.materialLots.map((lot) => ({ ...lot })),
+    materialLots: action.materialLots.map((lot: MaterialLot) => ({ ...lot })),
     loading: false,
     loaded: true,
   })),
