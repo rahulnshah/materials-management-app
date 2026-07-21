@@ -4,6 +4,14 @@
     margin-bottom: 10px;
   }
 
+  .custom-button {
+    background-color: #4CAF50; /* Background color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding */
+    border: none; /* Remove border */
+    cursor: pointer; /* Cursor style */
+    border-radius: 5px; /* Rounded corners */
+}
   .error-message {
     color: red;
     font-weight: bold;
@@ -44,15 +52,6 @@
     cursor: pointer; /* Cursor style */
     border-radius: 5px; /* Rounded corners */
   }
-  
-.custom-button {
-    background-color: #4CAF50; /* Background color */
-    color: white; /* Text color */
-    padding: 10px 20px; /* Padding */
-    border: none; /* Remove border */
-    cursor: pointer; /* Cursor style */
-    border-radius: 5px; /* Rounded corners */
-}
 
 .alert-message {
     color: red;
